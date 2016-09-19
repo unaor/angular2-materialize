@@ -9,6 +9,7 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
 import { GraphComponent } from './graph/graph.component';
 import { CHART_DIRECTIVES } from 'angular2-highcharts';
 import { SwatTableComponent } from './swat-table/swat-table.component';
+import { StationTypeGraphComponent } from './station-type-graph/station-type-graph.component';
 
 
 
@@ -19,7 +20,7 @@ import { SwatTableComponent } from './swat-table/swat-table.component';
     SideMenuComponent,
     GraphComponent,
     CHART_DIRECTIVES,
-    SwatTableComponent
+    SwatTableComponent, StationTypeGraphComponent
   ],
   imports: [
     BrowserModule,

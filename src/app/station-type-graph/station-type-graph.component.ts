@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+
 import { CHART_DIRECTIVES } from 'angular2-highcharts';
 
 import { StationComplianceService } from '../station-compliance.service';
 
 @Component({
-  selector: 'app-graph',
-  templateUrl: './graph.component.html',
-  styleUrls: ['./graph.component.css']
+  selector: 'app-station-type-graph',
+  templateUrl: './station-type-graph.component.html',
+  styleUrls: ['./station-type-graph.component.css']
 })
-export class GraphComponent implements OnInit {
+export class StationTypeGraphComponent implements OnInit {
 
   graphData;
 
@@ -16,20 +17,18 @@ export class GraphComponent implements OnInit {
 
   options;
 
-  constructor(private stationService : StationComplianceService) {
-
-  }
+  constructor(private stationService : StationComplianceService) { }
 
   ngOnInit() {
-    this.getUpDownStations();
-
+    this.getStationTypes();
   }
 
-  getUpDownStations(){
-    this.stationService.getUpDownStations()
+  getStationTypes(){
+    this.stationService.getStationsType()
       .subscribe(
         graphData => {
           this.graphData = graphData;
+          console.log(this.graphData);
           this.options = {
             chart : {type: 'pie',
                     plotShadow: true
@@ -37,7 +36,7 @@ export class GraphComponent implements OnInit {
             plotOptions : {
               showInLegend: true
             },
-            title : {text: 'Up and Down devices'},
+            title : {text: 'Station Types'},
             series: [{
               data: this.graphData
             }]
@@ -46,4 +45,5 @@ export class GraphComponent implements OnInit {
         error => this.errorMessage = <any>error
       );
   }
+
 }
