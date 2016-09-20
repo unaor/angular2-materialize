@@ -17,6 +17,8 @@ export class StationTypeGraphComponent implements OnInit {
 
   options;
 
+  private stationTypes = ['Computer', 'ManagedRouter', 'ManagedSwitch', 'MobileAndroid', 'Printer', 'Storage', 'Unknown', 'Windows_Computer'];
+
   constructor(private stationService : StationComplianceService) { }
 
   ngOnInit() {
@@ -24,11 +26,10 @@ export class StationTypeGraphComponent implements OnInit {
   }
 
   getStationTypes(){
-    this.stationService.getStationsType()
+    this.stationService.getStationCompliance()
       .subscribe(
         graphData => {
           this.graphData = graphData;
-          console.log(this.graphData);
           this.options = {
             chart : {type: 'pie',
                     plotShadow: true
@@ -38,12 +39,27 @@ export class StationTypeGraphComponent implements OnInit {
             },
             title : {text: 'Station Types'},
             series: [{
-              data: this.graphData
+              data: this.processStationType(this.graphData)
             }]
           }
         },
         error => this.errorMessage = <any>error
       );
+  }
+
+  private processStationType(rawData){
+    var result = [];
+    rawData.forEach(x =>{
+      var index = result.findIndex(y => y.name == x.stationType);
+       if(index == -1){
+         result.push({name: x.stationType, y: 1});
+       }
+       else {
+         result[index].y++;
+       }
+    })
+
+    return result;
   }
 
 }

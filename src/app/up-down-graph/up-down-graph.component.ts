@@ -3,12 +3,13 @@ import { CHART_DIRECTIVES } from 'angular2-highcharts';
 
 import { StationComplianceService } from '../station-compliance.service';
 
+
 @Component({
-  selector: 'app-graph',
-  templateUrl: './graph.component.html',
-  styleUrls: ['./graph.component.css']
+  selector: 'app-up-down-graph',
+  templateUrl: './up-down-graph.component.html',
+  styleUrls: ['./up-down-graph.component.css']
 })
-export class GraphComponent implements OnInit {
+export class UpDownGraphComponent implements OnInit {
 
   graphData;
 
@@ -16,17 +17,14 @@ export class GraphComponent implements OnInit {
 
   options;
 
-  constructor(private stationService : StationComplianceService) {
-
-  }
+  constructor(private stationService : StationComplianceService) { }
 
   ngOnInit() {
-    this.getUpDownStations();
-
+    this.getStationTypes();
   }
 
-  getUpDownStations(){
-    this.stationService.getUpDownStations()
+  getStationTypes(){
+    this.stationService.getStationCompliance()
       .subscribe(
         graphData => {
           this.graphData = graphData;
@@ -39,11 +37,25 @@ export class GraphComponent implements OnInit {
             },
             title : {text: 'Up and Down devices'},
             series: [{
-              data: this.graphData
+              data: this.processStationType(this.graphData)
             }]
           }
         },
         error => this.errorMessage = <any>error
       );
   }
+
+  private processStationType(rawData){
+    var result = [{name: 'Up Devices', y: 0}, {name: 'Down Devices', y: 0}];
+    rawData.forEach(x =>{
+       if(x.status == 'up'){
+         result[0].y++;
+       }
+       else {
+         result[1].y++;
+       }
+    })
+    return result;
+  }
+
 }

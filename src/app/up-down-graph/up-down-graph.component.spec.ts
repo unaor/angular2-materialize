@@ -1,11 +1,11 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async } from '@angular/core/testing';
-import { GraphComponent } from './graph.component';
+import { UpDownGraphComponent } from './up-down-graph.component';
 
-describe('Component: Graph', () => {
+describe('Component: UpDownGraph', () => {
   it('should create an instance', () => {
-    let component = new GraphComponent();
+    let component = new UpDownGraphComponent();
     expect(component).toBeTruthy();
   });
 });

@@ -13,9 +13,8 @@ import { StationCompliance } from './model/StationCompliance';
 @Injectable()
 export class StationComplianceService {
 
-  private url = '../assets/data/data.json';
-
-  private stationTypes = ['Computer', 'ManagedRouter', 'ManagedSwitch', 'MobileAndroid', 'Printer', 'Storage', 'Unknown', 'Windows_Computer'];
+  //private url = '../assets/data/data.json';
+  private url = '/api/read/stationCompliance';
 
   constructor(private http : Http) {
     console.log('Started Station compliance service');
@@ -42,22 +41,6 @@ export class StationComplianceService {
         ).reduce(
           ()=> {
             return [{name: 'Up Devices', y: upCounter}, {name: 'Down Devices', y: downCounter}];
-          }
-        ))
-        .catch((error:any) => Observable.throw(error.json().error || 'Server Error'));
-   }
-
-   getStationsType() :  Observable<StationCompliance []>{
-     var result = {};
-     return this.http.get(this.url)
-        .map((res:Response) => res.json().map(
-          (stationCompliance) => {
-            var stationType  = this.stationTypes[this.stationTypes.indexOf(stationCompliance.stationType)];
-            if(!result.stationType){
-              result.push({result[stationType]: stationType, name: stationType, y: 1});
-            } else {
-              result.stationType.y++;
-            }
           }
         ))
         .catch((error:any) => Observable.throw(error.json().error || 'Server Error'));

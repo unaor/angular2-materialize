@@ -6,10 +6,10 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
-import { GraphComponent } from './graph/graph.component';
 import { CHART_DIRECTIVES } from 'angular2-highcharts';
 import { SwatTableComponent } from './swat-table/swat-table.component';
 import { StationTypeGraphComponent } from './station-type-graph/station-type-graph.component';
+import { UpDownGraphComponent } from './up-down-graph/up-down-graph.component';
 
 
 
@@ -18,9 +18,8 @@ import { StationTypeGraphComponent } from './station-type-graph/station-type-gra
     AppComponent,
     MenuComponent,
     SideMenuComponent,
-    GraphComponent,
     CHART_DIRECTIVES,
-    SwatTableComponent, StationTypeGraphComponent
+    SwatTableComponent, StationTypeGraphComponent, UpDownGraphComponent
   ],
   imports: [
     BrowserModule,
