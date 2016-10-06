@@ -10,6 +10,7 @@ import { CHART_DIRECTIVES } from 'angular2-highcharts';
 import { SwatTableComponent } from './swat-table/swat-table.component';
 import { StationTypeGraphComponent } from './station-type-graph/station-type-graph.component';
 import { UpDownGraphComponent } from './up-down-graph/up-down-graph.component';
+import { StationStatusComponent } from './station-status/station-status.component';
 
 
 
@@ -19,7 +20,7 @@ import { UpDownGraphComponent } from './up-down-graph/up-down-graph.component';
     MenuComponent,
     SideMenuComponent,
     CHART_DIRECTIVES,
-    SwatTableComponent, StationTypeGraphComponent, UpDownGraphComponent
+    SwatTableComponent, StationTypeGraphComponent, UpDownGraphComponent, StationStatusComponent
   ],
   imports: [
     BrowserModule,

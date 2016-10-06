@@ -22,9 +22,16 @@ export class MenuComponent implements OnInit {
     this.userDetailsService.getUserDetails()
       .subscribe(
         userName => {
-          this.name = userName;
+          if(userName.includes('html')) {
+            this.name = 'TEST USER';
+          }else {
+            this.name = userName;
+          }
         },
-        error => this.errorMessage = <any>error
+        error => {
+          this.errorMessage = <any>error;
+          console.log('Error occured while getting name ' + this.errorMessage);
+        } 
       );
   }
 

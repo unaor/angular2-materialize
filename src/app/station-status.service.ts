@@ -8,18 +8,21 @@ import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-@Injectable()
-export class UserDetailsService {
+import { StationStatus } from './model/StationStatus';
 
-  private url = '/api/read/userDetails';
+@Injectable()
+export class StationStatusService {
+
+  private url = '/api/read/stationEnabledServices';
+  //private url = '../assets/data/data.json';
 
   constructor(private http : Http) {
-    console.log('Started UserDetails service');
+    console.log('Started StationStatus service');
   }
 
-   getUserDetails() : Observable<String> {
+     getStationStatus() : Observable<StationStatus> {
      return this.http.get(this.url)
-      .map((res:Response) => res.text())
+      .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server Error'));
    }
 
