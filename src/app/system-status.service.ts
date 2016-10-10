@@ -8,19 +8,19 @@ import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-import { StationStatus } from './model/StationStatus';
+import { SystemStatus } from './model/SystemStatus';
 
 @Injectable()
-export class StationStatusService {
+export class SystemStatusService {
 
-  private url = '/api/read/stationEnabledServices';
-  //private url = '../assets/data/data.json';
+  //private url = '/api/read/stationEnabledServices';
+  private url = '../assets/data/data.json';
 
   constructor(private http : Http) {
     console.log('Started StationStatus service');
   }
 
-     getStationStatus() : Observable<StationStatus> {
+     getSystemStatus() : Observable<SystemStatus> {
      return this.http.get(this.url)
       .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server Error'));

@@ -1,4 +1,4 @@
-export class StationStatus {
+export class SystemStatus {
   constructor(
     public enableCompliance: boolean,
     public enableSystemLog: boolean,

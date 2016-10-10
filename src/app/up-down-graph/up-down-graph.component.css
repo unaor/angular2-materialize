@@ -1,1 +1,41 @@
+i {
+    padding: 3px;
+    border-radius: 15px;
+    margin-right: 5px;
+}
 
+.status-button {
+    vertical-align: -webkit-baseline-middle;
+    vertical-align: sub;
+    cursor: pointer;
+    border-left: 2px solid #e0e0e0;
+    padding-left: 5px;
+}
+
+.widget-wrapper {
+    border: 1px solid #e0e0e0;
+    position: relative;
+}
+
+.header {
+    background-color: #e0e0e0;
+    border-bottom: 1px solid #bdbdbd;
+}
+
+.status-refresh i {
+    margin-top:10px;
+    cursor: pointer;
+}
+
+h5 {
+    text-align: center;
+}
+
+.hideChartsLogo {
+    width:70px;
+    height:15px;
+    background-color: white;
+    position: absolute;
+    bottom:6%;
+    right:12%;
+}

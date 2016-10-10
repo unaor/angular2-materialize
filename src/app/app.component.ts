@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { StationComplianceService } from './station-compliance.service';
 import { UserDetailsService } from './user-details.service';
-import { StationStatusService } from './station-status.service';
+import { SystemStatusService } from './system-status.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,7 @@ import { StationStatusService } from './station-status.service';
   styleUrls: ['./app.component.css'],
   providers : [StationComplianceService,
                UserDetailsService,
-               StationStatusService
+               SystemStatusService
               ]
 })
 export class AppComponent {

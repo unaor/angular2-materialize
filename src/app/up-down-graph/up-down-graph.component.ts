@@ -29,13 +29,39 @@ export class UpDownGraphComponent implements OnInit {
         graphData => {
           this.graphData = graphData;
           this.options = {
-            chart : {type: 'pie',
-                    plotShadow: true
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie',
+                width: 250,
+                height: 250,
+                marginTop: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom:50
             },
-            plotOptions : {
-              showInLegend: true
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
             },
-            title : {text: 'Up and Down devices'},
+            legend: {
+              width: 230,
+              align: 'center',
+              float: true,
+              x: 0,
+              y: 10
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true
+                }
+            },
+            title : {text: null},
             series: [{
               data: this.processStationType(this.graphData)
             }]

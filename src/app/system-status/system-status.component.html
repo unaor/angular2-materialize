@@ -1,0 +1,29 @@
+<div class="widget-wrapper z-depth-1">
+  <div class="row header">
+    <div class="col l10 m9"><h5>System Status</h5></div>
+    <div class="col l2 m3"><span class="status-refresh"  (click)= "getStatusData()"><i class="small material-icons">loop</i></span></div>
+  </div>
+
+  <div class="row">
+      <div class="col m12 l12" style="text-align:center;">
+        <span class="new badge grey" data-badge-caption="Disabled"></span>
+        <span class="new badge green" data-badge-caption="Working"></span>
+        <span class="new badge red" data-badge-caption="Problem"></span>
+      </div>
+  </div>
+
+  <div class="row">
+
+      <div  class="col m12" style="margin-bottom:10px;"><i class="material-icons left" [ngClass]="complianceClass">visibility</i> <span class="status-button">Compliance</span></div>
+
+      <div  class="col m12" style="margin-bottom:10px;"><i class="material-icons left" [ngClass]="sysLogClass">visibility</i> <span class="status-button">SysLog</span></div>
+
+      <div  class="col m12" style="margin-bottom:10px;"><i class="material-icons left" [ngClass]="trapClass">visibility</i> <span class="status-button">Trap</span></div>
+
+      <div  class="col m12" style="margin-bottom:10px;"><i class="material-icons left" [ngClass]="switchClass">visibility</i> <span class="status-button">Switch Discovery</span></div>
+
+      <div  class="col m12" style="margin-bottom:10px;"><i class="material-icons left" [ngClass]="routerClass">visibility</i> <span class="status-button">Router Discovery</span></div>
+  </div>
+
+
+</div>

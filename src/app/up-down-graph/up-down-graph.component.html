@@ -1,1 +1,12 @@
-<chart [options]="options"></chart>
+<div class="widget-wrapper z-depth-1">
+  <div class="row header">
+    <div class="col l10 m9"><h5>Up/Down Devices</h5></div>
+    <div class="col l2 m3"><span class="status-refresh"  (click)= "getStatusData()"><i class="small material-icons">loop</i></span></div>
+  </div>
+
+  <div class="row">
+      <div  class="col m12"><chart [options]="options"></chart></div>
+  </div>
+
+  <div class="hideChartsLogo"></div>
+</div>
