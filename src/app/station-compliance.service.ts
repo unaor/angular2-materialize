@@ -13,8 +13,8 @@ import { StationCompliance } from './model/StationCompliance';
 @Injectable()
 export class StationComplianceService {
 
-  private url = '../assets/data/compliance.json';
-  //private url = '/api/read/stationCompliance';
+  //private url = '../assets/data/compliance.json';
+  private url = '/api/read/stationCompliance';
 
   constructor(private http : Http) {
     console.log('Started Station compliance service');

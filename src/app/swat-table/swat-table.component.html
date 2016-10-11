@@ -1,15 +1,22 @@
+<div class="widget-wrapper z-depth-1">  
+
+    <div class="row header">
+      <div class="col l10 m9"><h5>Station Compliance Status</h5></div>
+      <div class="col l1 m3 offset-l1"><span class="status-refresh"  (click)= "getStatusData()"><i class="small material-icons">loop</i></span></div>
+    </div>
+
       <table class="bordered highlight centered responsive-table">
         <thead>
           <tr>
-              <th data-field="id" (click)= "sortBy('id')" class="sortable">Station ID</th>
-              <th data-field="result" (click)= "sortBy('result')" class="sortable">Result</th>
+              <th data-field="id" (click)= "sortBy('id')" class="sortable"><i class="Tiny material-icons left">swap_vert</i>Station ID</th>
+              <th data-field="result" (click)= "sortBy('result')" class="sortable"><i class="Tiny material-icons left">swap_vert</i>Result</th>
               <th data-field="stationType">Station Type</th>
               <th data-field="stationIP">Station IP</th>
               <th data-field="switchIP">Switch IP</th>
               <th data-field="slotNumber">Slot Number</th>
               <th data-field="portNumber">Port Number</th>
               <th data-field="message">Message</th>
-              <th data-field="status" (click)= "sortBy('status')" class="sortable">Status</th>
+              <th data-field="status" (click)= "sortBy('status')" class="sortable"><i class="Tiny material-icons left">swap_vert</i>Status</th>
               <th data-field="date">Date</th>
               <th data-field="macAddress">MAC Address</th>
           </tr>
@@ -25,7 +32,11 @@
             <td>{{stationCompliance.slotNumber}}</td>
             <td>{{stationCompliance.portNumber}}</td>
             <td>{{stationCompliance.message}}</td>
-            <td>{{stationCompliance.status}}</td>
+            <td>
+              <span *ngIf="stationCompliance.status === 'up'" style="color:#4CAF50;">&#8593;</span>
+              <span *ngIf="stationCompliance.status != 'up'" style="color:#F44336;">&#8595;</span>
+               {{stationCompliance.status}}
+            </td>
             <td>{{stationCompliance.date}}</td>
             <td>{{stationCompliance.macAddress}}</td>
           </tr>
@@ -33,3 +44,4 @@
 
         </tbody>
       </table>
+</div>

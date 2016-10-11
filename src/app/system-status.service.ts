@@ -13,8 +13,8 @@ import { SystemStatus } from './model/SystemStatus';
 @Injectable()
 export class SystemStatusService {
 
-  //private url = '/api/read/stationEnabledServices';
-  private url = '../assets/data/data.json';
+  private url = '/api/read/stationEnabledServices';
+  //private url = '../assets/data/data.json';
 
   constructor(private http : Http) {
     console.log('Started StationStatus service');

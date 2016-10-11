@@ -12,6 +12,7 @@ import { StationTypeGraphComponent } from './station-type-graph/station-type-gra
 import { UpDownGraphComponent } from './up-down-graph/up-down-graph.component';
 import { SystemStatusComponent } from './system-status/system-status.component';
 import { EventSeverityComponent } from './event-severity/event-severity.component';
+import { EventDeviceTypeComponent } from './event-device-type/event-device-type.component';
 
 
 
@@ -21,7 +22,7 @@ import { EventSeverityComponent } from './event-severity/event-severity.componen
     MenuComponent,
     SideMenuComponent,
     CHART_DIRECTIVES,
-    SwatTableComponent, StationTypeGraphComponent, UpDownGraphComponent, SystemStatusComponent, EventSeverityComponent
+    SwatTableComponent, StationTypeGraphComponent, UpDownGraphComponent, SystemStatusComponent, EventSeverityComponent, EventDeviceTypeComponent
   ],
   imports: [
     BrowserModule,

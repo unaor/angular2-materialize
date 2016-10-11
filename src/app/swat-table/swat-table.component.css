@@ -2,6 +2,30 @@
   cursor: pointer;
 }
 
-table {
+.sortable i {
+  margin: 1px 1px 0px 5px;
+  font-size: 15px;
+}
+
+th {
   font-size: 13px;
+  white-space: nowrap;
+}
+
+td {
+  font-size:11px;
+}
+
+.header {
+    background-color: #e0e0e0;
+    border-bottom: 1px solid #bdbdbd;
+}
+
+.status-refresh i {
+    margin-top:10px;
+    cursor: pointer;
+}
+
+h5 {
+    text-align: center;
 }
