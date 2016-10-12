@@ -2,3 +2,50 @@ body {
     font-size: 11px;
     background-color: #fafafa; 
 }
+
+.badge {
+    position: inherit;
+}
+
+i {
+    padding: 3px;
+    border-radius: 15px;
+    margin-right: 5px;
+    vertical-align: sub;
+    float:right;
+}
+
+.widget-wrapper {
+    border: 1px solid #e0e0e0;
+    font-size: 13px;
+}
+
+.header {
+    background-color: #e0e0e0;
+    border-bottom: 1px solid #bdbdbd;
+}
+
+.status-refresh i {
+    margin-top:10px;
+    cursor: pointer;
+}
+
+h5 {
+    font-size: 15px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.status-button {
+    vertical-align: -webkit-baseline-middle;
+    vertical-align: sub;
+    cursor: pointer;
+    border-left: 2px solid #e0e0e0;
+    padding-left: 5px;
+}
+
+.status-button .badge {
+    float: right;
+    min-width: 0px;
+    margin-top: 4px;
+}

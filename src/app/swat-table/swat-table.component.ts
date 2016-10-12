@@ -21,9 +21,15 @@ export class SwatTableComponent implements OnInit {
   }
 
   getTableData() {
-    this.stationService.getStationCompliance()
+    this.stationService.subscribeToComplianceService()
       .subscribe(
-        tableData => this.tableData = tableData,
+        tableData =>{
+            this.tableData = tableData;
+            this.tableData.map((stationCompliance) => {
+              var date = new Date(1000 * (stationCompliance.date));
+              stationCompliance.date = date.toLocaleString();
+            })
+        } ,
         error => this.errorMessage = <any>error
       );
   }

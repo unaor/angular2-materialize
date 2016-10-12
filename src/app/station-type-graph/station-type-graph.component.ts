@@ -26,7 +26,7 @@ export class StationTypeGraphComponent implements OnInit {
   }
 
   getStationTypes(){
-    this.stationService.getStationCompliance()
+    this.stationService.subscribeToComplianceService()
       .subscribe(
         graphData => {
           this.graphData = graphData;
@@ -36,7 +36,7 @@ export class StationTypeGraphComponent implements OnInit {
                 plotBorderWidth: null,
                 plotShadow: false,
                 type: 'pie',
-                width: 250,
+                width: 300,
                 height: 250,
                 marginTop: 0,
                 marginLeft: 0,

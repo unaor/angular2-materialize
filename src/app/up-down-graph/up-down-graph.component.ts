@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CHART_DIRECTIVES } from 'angular2-highcharts';
 
 import { StationComplianceService } from '../station-compliance.service';
@@ -17,14 +17,21 @@ export class UpDownGraphComponent implements OnInit {
 
   options;
 
+  @ViewChild('upDownGraph') highChartLogo;
+
   constructor(private stationService : StationComplianceService) { }
 
   ngOnInit() {
     this.getStationTypes();
   }
 
+  ngAfterContentInit () {
+    console.log('After view init');
+    console.log(this.highChartLogo);
+  }
+
   getStationTypes(){
-    this.stationService.getStationCompliance()
+    this.stationService.subscribeToComplianceService()
       .subscribe(
         graphData => {
           this.graphData = graphData;
@@ -34,7 +41,7 @@ export class UpDownGraphComponent implements OnInit {
                 plotBorderWidth: null,
                 plotShadow: false,
                 type: 'pie',
-                width: 250,
+                width: 300,
                 height: 250,
                 marginTop: 0,
                 marginLeft: 0,

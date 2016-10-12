@@ -15,13 +15,13 @@ export class StationCompliance {
     public action: string,
     public vlanNumberAction: number,
     public addToBlackList: boolean,
-    public date: Date,
+    public date: string,
     public siteName: string,
     public description: string,
     public macAddress: string,
     public dnsName: string,
     public nifIndex: number
   ){
-    date = new Date(date);
+
   }
 }
