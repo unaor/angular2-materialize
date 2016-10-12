@@ -6,6 +6,8 @@ i {
     padding: 3px;
     border-radius: 15px;
     margin-right: 5px;
+    vertical-align: sub;
+    float: right;
 }
 
 .status-button {
@@ -22,6 +24,7 @@ i {
 
 .widget-wrapper {
     border: 1px solid #e0e0e0;
+    font-size: 13px;
 }
 
 .header {
@@ -35,5 +38,7 @@ i {
 }
 
 h5 {
-    text-align: center;
+    font-size: 15px;
+    display: inline-block;
+    font-weight: bold;
 }
