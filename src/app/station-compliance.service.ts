@@ -14,8 +14,8 @@ import { StationCompliance } from './model/StationCompliance';
 @Injectable()
 export class StationComplianceService {
 
-  //private url = '../assets/data/compliance.json';
-  private url = '/api/read/stationCompliance';
+  private url = '../assets/data/compliance.json';
+  //private url = '/api/read/stationCompliance';
 
   allData: StationCompliance[] = new Array<StationCompliance>();
   allData$: BehaviorSubject<StationCompliance[]>;

@@ -6,7 +6,7 @@ import { StationCompliance } from '../model/StationCompliance';
 @Component({
   selector: 'app-swat-table',
   templateUrl: './swat-table.component.html',
-  styleUrls: ['./swat-table.component.css']
+  styleUrls: ['./swat-table.component.css', '../app.component.css']
 })
 export class SwatTableComponent implements OnInit {
 
@@ -14,10 +14,18 @@ export class SwatTableComponent implements OnInit {
 
   errorMessage: string;
 
-  constructor(private stationService : StationComplianceService) { }
+  stationResults: Array<string> = new Array<string>();
+
+  selectedResult;
+
+  constructor(private stationService : StationComplianceService) { 
+    this.stationResults.push('ALL');
+  }
 
   ngOnInit() {
       this.getTableData();
+      console.log(this.stationResults);
+      
   }
 
   getTableData() {
@@ -28,6 +36,10 @@ export class SwatTableComponent implements OnInit {
             this.tableData.map((stationCompliance) => {
               var date = new Date(1000 * (stationCompliance.date));
               stationCompliance.date = date.toLocaleString();
+              //add the possible station results to the Array;
+              if(!this.stationResults.includes(stationCompliance.result)){
+                this.stationResults.push(stationCompliance.result);
+              }
             })
         } ,
         error => this.errorMessage = <any>error
@@ -49,11 +61,9 @@ export class SwatTableComponent implements OnInit {
     });
   }
 
-  getUpDownDevices() {
-    var downStations = this.tableData.map(stationCompliance => {
-      console.log(stationCompliance);
-      return stationCompliance;
-    });
+  filterBy(field, value){
+    debugger;
+    console.log(field, value);
   }
 
 }

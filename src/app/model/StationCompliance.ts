@@ -15,7 +15,7 @@ export class StationCompliance {
     public action: string,
     public vlanNumberAction: number,
     public addToBlackList: boolean,
-    public date: string,
+    public date: any,
     public siteName: string,
     public description: string,
     public macAddress: string,
