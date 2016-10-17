@@ -7,12 +7,14 @@
       <table class="bordered striped centered responsive-table">
         <thead>
           <tr>
-              <th data-field="id" (click)= "sortBy('id')" class="sortable"><input id="first_name" type="text" class="validate"><br/><i class="Tiny material-icons left">swap_vert</i>Station ID</th>
+              <th data-field="id" (click)= "sortBy('id')"  class="sortable">
+                <input (input)="field = 'id'" #searchValue  (keyup)="0" type="text" class="validate"><br/>
+                <i class="Tiny material-icons left">swap_vert</i>Station ID</th>
               <th data-field="result" (click)= "sortBy('result')" class="sortable">
-                <select materialize="material_select" [(ngModel)]="selectedResult" (change) = "filterBy('result', $event.target.value)">
+               <select materialize="material_select" [materializeSelectOptions]="stationResults" (change)="field = 'result'" #searchValue (change) = "0">
                      <option *ngFor="let result of stationResults" [value]="result">{{result}}</option>
               </select><i class="Tiny material-icons left">swap_vert</i>Result</th>
-              <th data-field="stationType"><input id="first_name" type="text" class="validate"><br/>Station Type</th>
+              <th data-field="stationType"><input (input)="field = 'stationType'" #searchValue  (keyup)="0" type="text" class="validate"><br/>Station Type</th>
               <th data-field="stationIP"><input id="first_name" type="text" class="validate"><br/>Station IP</th>
               <th data-field="switchIP"><input id="first_name" type="text" class="validate"><br/>Switch IP</th>
               <th data-field="slotNumber"><input id="first_name" type="text" class="validate"><br/>Slot Number</th>
@@ -25,7 +27,7 @@
         </thead>
 
         <tbody>
-          <tr *ngFor = "let stationCompliance of tableData">
+          <tr *ngFor = "let stationCompliance of tableData | filter:field:searchValue.value">
             <td>{{stationCompliance.id}}</td>
             <td>{{stationCompliance.result}}</td>
             <td>{{stationCompliance.stationType}}</td>

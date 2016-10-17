@@ -13,6 +13,10 @@ import { UpDownGraphComponent } from './up-down-graph/up-down-graph.component';
 import { SystemStatusComponent } from './system-status/system-status.component';
 import { EventSeverityComponent } from './event-severity/event-severity.component';
 import { EventDeviceTypeComponent } from './event-device-type/event-device-type.component';
+import { MaterializeModule } from 'angular2-materialize';
+import "materialize-css";
+import { FilterPipe } from './filter.pipe';
+
 
 
 
@@ -22,12 +26,14 @@ import { EventDeviceTypeComponent } from './event-device-type/event-device-type.
     MenuComponent,
     SideMenuComponent,
     CHART_DIRECTIVES,
+    FilterPipe,
     SwatTableComponent, StationTypeGraphComponent, UpDownGraphComponent, SystemStatusComponent, EventSeverityComponent, EventDeviceTypeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    MaterializeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

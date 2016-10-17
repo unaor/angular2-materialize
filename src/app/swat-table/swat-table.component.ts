@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { StationComplianceService } from '../station-compliance.service';
 
 import { StationCompliance } from '../model/StationCompliance';
+
 
 @Component({
   selector: 'app-swat-table',
@@ -16,7 +17,9 @@ export class SwatTableComponent implements OnInit {
 
   stationResults: Array<string> = new Array<string>();
 
-  selectedResult;
+  _filteredStationResults: Array<StationCompliance> = new Array<StationCompliance>();
+
+  @Input() searchValue;
 
   constructor(private stationService : StationComplianceService) { 
     this.stationResults.push('ALL');
@@ -46,6 +49,19 @@ export class SwatTableComponent implements OnInit {
       );
   }
 
+  getFilterStations(field, filterValue){
+    if(!field || !filterValue || filterValue == 'ALL'){
+      console.log('returning normal tableData');
+      return this.tableData;
+    } else {
+      console.log('Inside filter else');
+      var filteredStations = this.tableData;
+      filteredStations = filteredStations.filter(stationCompliance => stationCompliance[field] == filterValue);
+      return filteredStations;
+    }
+    
+  }
+
   sortBy(field){
     this.tableData.sort((n1, n2) =>
     {
@@ -62,8 +78,11 @@ export class SwatTableComponent implements OnInit {
   }
 
   filterBy(field, value){
-    debugger;
-    console.log(field, value);
+    if(value == 'ALL') {
+      return;
+    } else {
+      this.tableData =  this.tableData.filter(stationCompliance => stationCompliance.result == value);
+    }
   }
 
 }
